@@ -9,48 +9,24 @@ namespace Lab_10
     class Program
     {
         public static int i = 1;
+
         static void Main(string[] args)
         {
             bool run = true;
             while (run == true)
             {
                 Console.WriteLine("Welcome to the circle calulator");
+                Console.Write("Enter radius: ");
 
-                Console.Write("Enter a radius: ");
-                double.TryParse(Console.ReadLine(), out double radius);
-
-                Circle c = new Circle(radius);
+                // Creating new Circle object c and calling class Validator method is number
+                // to check that the input contains a number
+                Circle c = new Circle(Validator.IsNumber());
 
                 c.PrintInfo();
-                run = Continue();
+                run = Validator.Continue(i++);
             }
+            Console.WriteLine("Press any to exit...");
+            Console.ReadKey();
         }
-
-        public static bool Continue()
-        {    
-            Console.Write("\nWould you like to calculate another circle? (y/n) ");
-            string go = Console.ReadLine().ToLower();
-
-            bool run1;
-            if (go == "y")
-            {
-                i++;
-                Console.Clear();
-                run1 = true;
-            }
-            else if (go == "n")
-            {
-                Console.WriteLine("\nYou created " + i + " Circle objects");
-                Console.WriteLine("\nThanks for using our calculator\nGoodbye!\n");
-                run1 = false;
-            }
-            else
-            {
-                Console.WriteLine("Invalid. Try Again!");
-                run1 = Continue();
-            }
-            return run1;
-        }
-
     }
 }

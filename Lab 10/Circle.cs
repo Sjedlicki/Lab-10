@@ -52,7 +52,7 @@ namespace Lab_10
         public void PrintInfo()
         {
             Console.WriteLine("\nRadius: "+ radius);
-            //Console.WriteLine("\nCircumference: " + CalculateCircumference());
+           //Console.WriteLine("\nCircumference: " + CalculateCircumference());
             Console.WriteLine("\nCircumference: " + CalculateFormattedCircumference());
             //Console.WriteLine("\nArea: " + CalculateArea());
             Console.WriteLine("\nArea: " + CalulateFormattedArea());

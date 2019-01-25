@@ -18,30 +18,28 @@ namespace Lab_10
             // int i is used to counter number of failed attemps (errors)
             // if i exceeds value then the loop breaks
             int i = 0;
+            int x = 3;
+
             bool run = true;
             while (run == true && i < 3)
             {
                 bool isNumber = double.TryParse(Console.ReadLine(), out double output);
-                if (i < 3)
+                if (isNumber == true && i < 3)
                 {
-                    if (isNumber == true && i < 3)
-                    {
-                        return output;
-                    }
-
-                    else if (isNumber == false && i <= 3)
-                    {                         
-                        Console.Write("Invalid, Try again: ");
-                        i++;
-                    }
+                    return output;
                 }
-                else
+                else if (i >= 2)
                 {
-                    Console.WriteLine("Maximum number of attempts reached");
-                    run = false;
+                    Console.WriteLine("\nMaximum number of attempts reached");
+                    break;
                 }
+                x--;
+                Console.WriteLine("\n" + x + " attempts remaining");
+                Console.Write("\n" + "Invalid input. Please enter a number: ");
+                i = i + 1;                
+                run = true;
             }
-            return -1;
+            return -1;            
         }
 
         // int i is used to count the number of times the person reruns the program
@@ -52,8 +50,7 @@ namespace Lab_10
 
             bool run;
             if (go == "y")
-            {
-                i++;
+            {                
                 Console.Clear();
                 run = true;
             }
@@ -64,7 +61,7 @@ namespace Lab_10
                 run = false;
             }
             else
-            {
+            {                
                 Console.WriteLine("Invalid. Try Again!");
                 run = Continue(i);
             }
